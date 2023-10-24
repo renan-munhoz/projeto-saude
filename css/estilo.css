@@ -3,11 +3,7 @@
     padding: 0;
 }
 
-#tela-login{
-
-}
-
-#tela-login #formulario{
+#formulario{
     width: 100vw;
     height: 100vh;
     background: #6C7A89;
@@ -17,11 +13,26 @@
     align-items: center;
 }
 
-#barra-info{
+#tela-cadastro #barra-info{
     width: 450px;
     height: 450px;
     background: #fff;
     
+}
+
+#cadastro{
+    text-align: left;
+    padding: 30px 100px;
+}
+
+#cadastro label{
+    display: block;
+    margin: 0;
+}
+
+#cadastro input{
+    margin-bottom: 30px;
+    line-height: 2em;
 }
 
 #barra-info h1{
@@ -34,7 +45,7 @@
     justify-content: center;
 }
 
-#barra-info form input{
+#tela-login #barra-info form input{
    display: block;
    margin: 20px;
    line-height: 2em;
