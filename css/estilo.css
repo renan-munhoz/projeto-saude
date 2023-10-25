@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+body{
+    background: #ccc
+}
+
 ul{
     list-style: none;
 }
@@ -21,7 +25,7 @@ ul{
     align-items: center;
 }
 
-#tela-cadastro #barra-info{
+#barra-info{
     width: 450px;
     height: 450px;
     background: #fff;
@@ -63,7 +67,7 @@ ul{
 
 /*formatacao index*/
 #cabecalho{
-    height: 12em;
+    height: 10em;
     background: #45AFD1;
     display: flex;
     justify-content: space-between;
@@ -131,17 +135,36 @@ a{
 }
 
 #conteudo #bloco {
-    width: 90%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
 }
 
-#conteudo #bloco img{
+#index #conteudo #bloco img{
     padding-top: 30px;
     width: 100%;
     height: 60%;
 }
 
+#sobre-nos #conteudo #bloco img{
+    padding-top: 30px;
+    width: 45%;
+    height: 45%;
+}
+
+p{
+    margin: 20px;
+}
+
+#agendamento #conteudo #bloco form{
+    display: flex;
+    flex-direction: column;
+}
+
 #rodape{
-    background: #ccc;
+    background: #cecece;
     text-align: center;
     height: 120px;
 }

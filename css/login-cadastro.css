@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: #ccc
+}
+
+ul{
+    list-style: none;
+}
+
+.limpar{
+    clear: both;
+}
+
+#formulario{
+    width: 100vw;
+    height: 100vh;
+    background: #6C7A89;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#login #formulario #barra-info{
+    width: 450px;
+    height: 450px;
+    background: #fff;
+    
+}
+
+#cadastro #formulario #barra-info{
+    width: 450px;
+    height: 720px;
+    background: #fff;
+    
+}
+
+#cadastro label{
+    display: block;
+    margin: 0;
+}
+
+#cadastro #formulario #barra-info form{
+    display: flex;
+    flex-direction: column;
+}
+
+#cadastro #formulario #barra-info form input{
+    line-height: 2em;
+    margin-bottom: 30px;
+}
+
+#login #formulario #barra-info h1{
+    margin-top: 100px;
+}
+
+#cadastro #barra-info h1{
+    margin-top: 40px;
+}
+
+.centralizar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#login #formulario #barra-info form input{
+   display: block;
+   margin: 20px;
+   line-height: 2em;
+   padding: 5px;
+}
+
+#cadastro-funcionario #formulario{
+    width: 100vw;
+    height: 100vh;
+    background: #6C7A89;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#cadastro-funcionario #formulario #barra-info{
+    width: 720px;
+    height: 600px;
+    background: #fff;
+    
+}
+
+#cadastro-funcionario #formulario #barra-info form{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#cadastro-funcionario #formulario #barra-info form input{
+    line-height: 2em;
+    margin-bottom: 30px;
+}
+
+#cadastro-funcionario #formulario #barra-info form div{
+   margin: 15px;
+}
+
+#cadastro-funcionario #barra-info h1{
+    margin-top: 40px;
+}
