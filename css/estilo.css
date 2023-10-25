@@ -63,24 +63,21 @@ ul{
 
 /*formatacao index*/
 #cabecalho{
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-around;
-    flex-direction: row;
     height: 12em;
     background: #45AFD1;
+    display: flex;
+    justify-content: space-between;
 }
 
 #area-logo{
-    float: left;
     width: 33%;
-    margin: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .logo a{
     font-size: 2em;
-    padding-left: 30px;
-    margin-top: 50px;
 }
 
 a{
@@ -89,31 +86,41 @@ a{
 }
 
 #area-menu{
-    float: right;
-    /*width: 33%;*/
-    text-align: center;
+    width: 33%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    line-height: 1.9em;
 }
 
-#area-menu ul li{
+#area-menu ul li {
     display: inline;
-    background: #3A97B5;
+    
+}
+
+#area-menu ul li a{
     padding: 5px;
-    height: min-content;
+    font-size: 1.5em;
+}
+
+#area-menu ul li a:hover{
+    background: #3A97B5;
 }
 
 #area-login{
-    float: right;
     width: 33%;
-    padding: 30px;
-    text-align: center;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
 }
 
 #area-login ul li{
     width: 100px;
     margin-bottom: 20px;
     background: #3A97B5;
-    float: right;
+    margin-right: 30px;
+    padding: 5px;
 }
 
 
@@ -131,4 +138,10 @@ a{
     padding-top: 30px;
     width: 100%;
     height: 60%;
+}
+
+#rodape{
+    background: #ccc;
+    text-align: center;
+    height: 120px;
 }
