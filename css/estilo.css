@@ -140,6 +140,7 @@ a{
     flex-direction: column;
     align-items: center;
     background: #fff;
+    padding: 10px;
 }
 
 #index #conteudo #bloco img{
@@ -158,10 +159,33 @@ p{
     margin: 20px;
 }
 
+#agendamento #conteudo{
+    height: 720px;
+}
+
 #agendamento #conteudo #bloco form{
+    height: 720px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
+#agendamento #conteudo #bloco form div input{
+    line-height: 2em;
+    margin: 15px;
+}
+
+.botao{
+    width: 100px;
+    height: 100px;
+}
+
+table, th, td{
+    border: 2px solid black;
+    font-size: 1.3em;
+    padding: 5px;
+ }
 
 #rodape{
     background: #cecece;
