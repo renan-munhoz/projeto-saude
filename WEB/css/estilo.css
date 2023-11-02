@@ -189,7 +189,7 @@ table, th, td{
 
  #escrita-prontuario{
     width: 100%;
-    height: 840px;
+    height: 600px;
     display: flex;
     text-align: center;
     justify-content: center;
@@ -205,6 +205,114 @@ table, th, td{
     height: 05%;
     font-size: 1.3em;
 }
+
+#area-botao{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+#area-botao button{
+   width: 100%;
+   font-size: 1.3em;
+}
+
+#prontuario #conteudo #bloco{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.popup {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+}
+
+.conteudo-popup {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888888;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#formulario-atestado{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+
+#formulario-atestado fieldset{
+    border: none;
+    padding: 20px;
+    font-size: 1.3em;
+}
+
+#formulario-atestado fieldset input{
+    font-size: 1.3em;
+}
+
+#enviarAtestado{
+    width: 100%;
+    height: 60px;
+}
+
+#numDias{
+    width: 90px;
+}
+
+h3{
+    font-size: 1.8em;
+}
+
+#formulario-receita{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+
+#formulario-receita fieldset{
+    border: none;
+    padding: 20px;
+    font-size: 1.3em;
+}
+
+#formulario-receita fieldset input{
+    font-size: 1.3em;
+}
+
+#enviarReceita{
+    width: 100%;
+    height: 60px;
+}
+
+.conteudo-popup button {
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.show {
+    display: block;
+}
+
+
 
 #rodape{
     background: #cecece;
