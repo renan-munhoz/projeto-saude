@@ -1,10 +1,10 @@
 
 const Sequelize = require('sequelize');
-const db = require('../../../BANCO_DE_DADOS/banco');
+const db = require('../../../BANCO_DE_DADOS/banco.sql');
 
 const Paciente = db.define(
     'Paciente',{
-        id: {
+        idPaciente: {
             type: Sequelize.INTEGER,
             autoIncrement: true,
             allowNull: false,

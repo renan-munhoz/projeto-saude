@@ -3,11 +3,14 @@
     "body-parser": "^1.20.2",
     "express": "^4.18.2",
     "jspdf": "^2.5.1",
+    "mysql": "^2.18.1",
     "mysql2": "^3.6.2",
     "sequelize": "^6.33.0"
   },
-
-"scripts":{
-  	"starts": "nodemon js/index.js"
+  "scripts": {
+    "starts": "nodemon js/index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }
