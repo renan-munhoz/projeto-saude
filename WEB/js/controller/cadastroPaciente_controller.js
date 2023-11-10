@@ -1,22 +1,14 @@
 const express = require("express");
 const path = require("path");
 const mysql = require('mysql');
+const Paciente = require('../models/paciente')
+const banco = require("../banco")
 
 const router = express.Router();
 
-// Configuração da conexão
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'usuario',
-  password: 'senha',
-  database: 'projeto-saude'
-});
-
-// Verifica a conexão
-connection.connect((err) => {
-  if (err) throw err;
-  console.log('Conectado ao banco de dados MySQL!');
-});
+router.get("/cadastroPaciente", (req, res) =>{
+    res.sendFile(path.join(__dirname, "../../", "cadastro-paciente.html"));
+})
 
 router.post("/cadastrarPacienteAPI", async (req, res) => {
     await Paciente.create(req.body)
