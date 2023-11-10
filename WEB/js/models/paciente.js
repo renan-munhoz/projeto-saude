@@ -1,40 +1,38 @@
-
 const Sequelize = require('sequelize');
-const db = require('../../../BANCO_DE_DADOS/banco.sql');
+const banco = require('../banco')
 
-const Paciente = db.define(
-    'Paciente',{
-        idPaciente: {
-            type: Sequelize.INTEGER,
-            autoIncrement: true,
-            allowNull: false,
-            primaryKey: true
-        },
-        nome: {
-            type: Sequelize.STRING,
-            allowNull: false
-        },
-        email: {
-            type: Sequelize.STRING,
-            allowNull: false
-        },
-        endereco: {
-            type: Sequelize.STRING,
-            allowNull: false
-        },
-        telefone: {
-            type: Sequelize.STRING,
-            allowNull: false
-        },
-        senha: {
-            type: Sequelize.STRING,
-            allowNull: false
-        }
-});
+const Paciente = banco.define(
+  'paciente', {
+    idPaciente: {
+      type: Sequelize.INTEGER,
+      autoIncrement: true,
+      allowNull: false,
+      primaryKey: true
+    },
+    nome: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
+    email: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
+    endereco: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
+    telefone: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
+    senha: {
+      type: Sequelize.STRING,
+      allowNull: false
+    }
+  }
+);
 
-//COMANDO PARA CRIAR A TABELA NO BANCO DE DADOS
+// Sincroniza o modelo com o banco de dados
 Paciente.sync();
 
-//VERIFICA SE TEM ALGUMA ALTERAÇÃO NA TABELA PARA INSERIR OS NOVOS CAMPOS
-//Usuario.sync({alter: true});
 module.exports = Paciente;
