@@ -1,10 +1,9 @@
-
 const Sequelize = require('sequelize');
-const db = require('../../../BANCO_DE_DADOS/banco');
+const banco = require('../banco')
 
-const Funcionario = db.define(
-    'Funcionario',{
-        id: {
+const Funcionario = banco.define(
+    'funcionarios',{
+        idFuncionario: {
             type: Sequelize.INTEGER,
             autoIncrement: true,
             allowNull: false,
@@ -30,7 +29,7 @@ const Funcionario = db.define(
             type: Sequelize.STRING,
             allowNull: false
         },
-        carteira_de_trabalho: {
+        carteiraDeTrabalho: {
             type: Sequelize.STRING,
             allowNull: false
         },

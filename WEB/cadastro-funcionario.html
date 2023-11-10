@@ -10,7 +10,7 @@
             <div id="barra-info">
                 <h1 class="centralizar">Cadastro</h1>
                 <div class="centralizar">
-                    <form id="cadastro">
+                    <form id="cadastro" method="post" action="/cadastrarFuncionario">
                         <div>   
                             <label for="nome">Nome</label>
                             <input name="nome" type="text">
@@ -21,23 +21,23 @@
                             <label for="nome">CNH</label>
                             <input name="cnh" type="text">
                             <label for="nome">Carteira de Trabalho</label>
-                            <input name="carteira-de-trabalho" type="text">
+                            <input name="carteiraDeTrabalho" type="text">
                             <label for="nome">Função</label>
                             <input name="funcao" type="text">
                         </div>
                         <div>
                             <label for="email">E-mail</label>
                             <input name="email" type="text">
-                            <label for="confirmar-email">Confirmar E-mail</label>
-                            <input name="confirmar-email" type="text" >
+                            <!--<label for="confirmar-email">Confirmar E-mail</label>
+                            <input name="confirmar-email" type="text" >-->
                             <label for="endereco">Endereço</label>
                             <input name="endereco" type="text">
                             <label for="telefone">Telefone</label>
                             <input name="telefone" type="text">
                             <label for="senha">Senha</label>
                             <input name="senha" type="password">
-                            <label for="confirmar-senha">Confirmar Senha</label>
-                            <input name="confirmar-senha" type="password">
+                            <!--<label for="confirmar-senha">Confirmar Senha</label>
+                            <input name="confirmar-senha" type="password">-->
 
                             <input type="submit" value="Cadastrar">
                         </div>

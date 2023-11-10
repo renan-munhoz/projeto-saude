@@ -1,31 +1,23 @@
 const Sequelize = require('sequelize');
 const banco = require('../banco')
 
-const Paciente = banco.define(
-  'pacientes', {
-    idPaciente: {
+const Prontuario = banco.define(
+  'prontuario', {
+    idProntuario: {
       type: Sequelize.INTEGER,
       autoIncrement: true,
       allowNull: false,
       primaryKey: true
     },
-    nome: {
+    texto: {
       type: Sequelize.STRING,
       allowNull: false
     },
-    email: {
+    idPaciente: {
       type: Sequelize.STRING,
       allowNull: false
     },
-    endereco: {
-      type: Sequelize.STRING,
-      allowNull: false
-    },
-    telefone: {
-      type: Sequelize.STRING,
-      allowNull: false
-    },
-    senha: {
+    idFuncionario: {
       type: Sequelize.STRING,
       allowNull: false
     }
@@ -33,6 +25,6 @@ const Paciente = banco.define(
 );
 
 // Sincroniza o modelo com o banco de dados
-Paciente.sync();
+Prontuario.sync();
 
-module.exports = Paciente;
+module.exports = Prontuario;

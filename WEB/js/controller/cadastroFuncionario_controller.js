@@ -1,11 +1,13 @@
 const express = require("express");
 const path = require("path");
-
-const spawnSync = require('child_process');
+const Funcionario = require('../models/funcionario');
+const banco = require("../banco")
 
 const router = express.Router();
-const conexao = require('../../../BANCO_DE_DADOS/banco');
-const Funcionario = require('../models/funcionario');
+
+router.get("/cadastroFuncionario", (req, res) =>{
+    res.sendFile(path.join(__dirname, "../../", "cadastro-funcionario.html"));
+})
 
 router.post("/cadastrarFuncionarioAPI", async (req, res)=>{
     await Funcionario.create(req.body)
