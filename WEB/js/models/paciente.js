@@ -33,6 +33,6 @@ const Paciente = banco.define(
 );
 
 // Sincroniza o modelo com o banco de dados
-Paciente.sync();
+Paciente.sync({alter: true});
 
 module.exports = Paciente;
