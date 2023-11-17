@@ -52,7 +52,7 @@ const Funcionario = banco.define(
 });
 
 //COMANDO PARA CRIAR A TABELA NO BANCO DE DADOS
-Funcionario.sync();
+Funcionario.sync({alter: true});
 
 //VERIFICA SE TEM ALGUMA ALTERAÇÃO NA TABELA PARA INSERIR OS NOVOS CAMPOS
 //Usuario.sync({alter: true});
