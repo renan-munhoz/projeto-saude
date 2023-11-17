@@ -1,8 +1,10 @@
 const Sequelize = require('sequelize');
 const banco = require('../banco')
+const Funcionario = require('./funcionario')
+const Paciente = require('./paciente')
 
 const Prontuario = banco.define(
-  'prontuario', {
+  'prontuarios', {
     idProntuario: {
       type: Sequelize.INTEGER,
       autoIncrement: true,
@@ -12,19 +14,14 @@ const Prontuario = banco.define(
     texto: {
       type: Sequelize.STRING,
       allowNull: false
-    },
-    idPaciente: {
-      type: Sequelize.STRING,
-      allowNull: false
-    },
-    idFuncionario: {
-      type: Sequelize.STRING,
-      allowNull: false
     }
+  
   }
 );
 
-// Sincroniza o modelo com o banco de dados
-Prontuario.sync();
+Prontuario.belongsTo(Funcionario)
+Prontuario.belongsTo(Paciente)
 
+// Sincroniza o modelo com o banco de dados
+Prontuario.sync({alter: true});
 module.exports = Prontuario;

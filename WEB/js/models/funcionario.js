@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const banco = require('../banco')
 
 const Funcionario = banco.define(
-    'funcionarios',{
+    'funcionario',{
         idFuncionario: {
             type: Sequelize.INTEGER,
             autoIncrement: true,
