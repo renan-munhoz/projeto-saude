@@ -1,36 +1,38 @@
-
 const Sequelize = require('sequelize');
-const db = require('../../../BANCO_DE_DADOS/banco');
+const banco = require('../banco')
 
-const Agendamento = db.define(
-    'Agendamento',{
-        id: {
-            type: Sequelize.INTEGER,
-            autoIncrement: true,
-            allowNull: false,
-            primaryKey: true
-        },
-        data: {
-            type: Sequelize.STRING,
-            allowNull: false
-        },
-        hora: {
-            type: Sequelize.STRING,
-            allowNull: false
-        },
-        paciente_idPaciente: {
-            type: Sequelize.INTEGER,
-            allowNull: false
-        },
-        funcionario_idFuncionario: {
-            type: Sequelize.INTEGER,
-            allowNull: false
-        }
-});
+const Agendamento = banco.define(
+  'agendamentos', {
+    idAgendamento: {
+      type: Sequelize.INTEGER,
+      autoIncrement: true,
+      allowNull: false,
+      primaryKey: true
+    },
+    data: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
+    hora: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
+    idPaciente: {
+      type: Sequelize.INTEGER,
+      references: 'pacientes',
+      referencekey: 'idPaciente',
+      allowNull: false
+    },
+    idFuncionario: {
+      type: Sequelize.INTEGER,
+      references: 'funcionarios',
+      referencekey: 'idFuncionario',
+      allowNull: false
+    }
+  }
+);
 
-//COMANDO PARA CRIAR A TABELA NO BANCO DE DADOS
-Agendamento.sync();
+// Sincroniza o modelo com o banco de dados
+Prontuario.sync();
 
-//VERIFICA SE TEM ALGUMA ALTERAÇÃO NA TABELA PARA INSERIR OS NOVOS CAMPOS
-//Usuario.sync({alter: true});
 module.exports = Agendamento;
