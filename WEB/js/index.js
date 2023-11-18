@@ -12,6 +12,7 @@ const ProntuarioController = require('./controller/prontuario_controller.js');
 const AgendamentoController = require('./controller/agendamento_controller.js');
 const AtestadoController = require('./controller/atestado_controller.js');
 const ReceitaController = require('./controller/receita_controller.js');
+const LoginPacienteController = require('./controller/loginPaciente_controller.js');
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended:true}));
@@ -22,6 +23,7 @@ app.use(ProntuarioController);
 app.use(AgendamentoController);
 app.use(AtestadoController);
 app.use(ReceitaController);
+app.use(LoginPacienteController);
 
 app.use(router);
 
