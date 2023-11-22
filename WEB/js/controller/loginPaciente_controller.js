@@ -2,6 +2,11 @@ const express = require("express");
 const path = require("path");
 const Paciente = require('../models/paciente');
 const banco = require('../banco');
+const Redis = require('Redis');
+const client = Redis.createClient();
+client.on('error', err => console.log('Redis Client Error', err));
+
+
 
 const router = express.Router();
 
@@ -17,6 +22,7 @@ router.post('/logarPaciente', async (req, res) => {
 
     if (paciente) {
       res.cookie('pacienteLogado', true, { maxAge: 900000, httpOnly: true });
+      await client.set('user', paciente.idPaciente);
 
       return res.json({
         erro: false,

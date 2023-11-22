@@ -2,7 +2,8 @@ const express = require("express");
 const router = express.Router();
 const path = require("path");
 const bodyParser = require("body-parser");
-const banco = require("./banco")
+const banco = require("./banco");
+
 
 const app = express();
 
@@ -13,9 +14,13 @@ const AgendamentoController = require('./controller/agendamento_controller.js');
 const AtestadoController = require('./controller/atestado_controller.js');
 const ReceitaController = require('./controller/receita_controller.js');
 const LoginPacienteController = require('./controller/loginPaciente_controller.js');
+const LoginFuncionarioController = require('./controller/loginFuncionario_controller.js');
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended:true}));
+
+app.set('views', path.join(__dirname,'../../','WEB'));
+app.set('view engine', 'ejs');
 
 app.use(PacienteController);
 app.use(FuncionarioController);
@@ -24,9 +29,11 @@ app.use(AgendamentoController);
 app.use(AtestadoController);
 app.use(ReceitaController);
 app.use(LoginPacienteController);
+app.use(LoginFuncionarioController);
 
 app.use(router);
 
 app.listen(3030, () => {
     console.log("Servidor rodando")
 });
+ 
