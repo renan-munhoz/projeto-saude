@@ -1,6 +1,5 @@
 const express = require("express");
 const path = require("path");
-const mysql = require('mysql');
 const Receita = require('../models/receita')
 const banco = require("../banco")
 const Paciente = require('../models/paciente')

@@ -1,8 +1,9 @@
 const express = require("express");
 const path = require("path");
-const mysql = require('mysql');
 const Agendamento = require('../models/agendamento')
 const banco = require("../banco")
+
+const spawnSync = require('child_process');
 
 const router = express.Router();
 
