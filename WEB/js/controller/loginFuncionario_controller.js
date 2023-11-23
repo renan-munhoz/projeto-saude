@@ -18,36 +18,33 @@ router.get('/loginFuncionario', (req, res) => {
 });
 
 router.post('/logarFuncionario', async (req, res) => {
-  const { email, senha } = req.body;
+  var campo_email = req.body.email;
+  var campo_senha = req.body.senha;
 
-  try {
-    const funcionario = await Funcionario.findOne({ where: { email, senha } });
+  const funcionarios = await Funcionario.findOne({
+      attributes: ['idFuncionario', 'nome', 'email', 'senha'],
+      where: {
+        email: campo_email
+      }
+  })
 
-    if (funcionario) {
-      res.cookie('funcionario Logado', true, { maxAge: 900000, httpOnly: true });
-      await client.set('user', funcionario.idFuncionario);
+  if(funcionarios === null){
+      console.log("Usuário ou senha inválida");
+      res.sendFile(path.join(__dirname, '../../', 'login-funcionario.html'));
+  }
 
-      value = await client.get('user');
-
-      return res.json({
-        erro: false,
-        mensagem: 'Funcionario logado com sucesso!',
-        funcionarioId: funcionario.idFuncionario,
-        funcionarioInfo: funcionario,
-        value: value
-      });
-    } else {
-      return res.status(400).json({
-        erro: true,
-        mensagem: 'Credenciais inválidas. Falha ao logar funcionario!',
-      });
-    }
-  } catch (error) {
-    console.error('Erro durante o login do funcionario:', error);
-    return res.status(500).json({
-      erro: true,
-      mensagem: 'Ocorreu um erro ao processar o login do funcionario.',
-    });
+  if(campo_email == funcionarios.email && campo_senha == funcionarios.senha){
+      req.session.funcionarios = {
+          idFuncionario: funcionarios.idFuncionario,
+          nome: funcionarios.nome,
+          email: funcionarios.email
+      }
+      
+      console.log("Logado com sucesso")
+      res.sendFile(path.join(__dirname, '../../', "menu-funcionario.html"));
+  }else{
+      console.log("Usuário ou senha inválida");
+      res.sendFile(path.join(__dirname, '../../', "index.html"));
   }
 });
 

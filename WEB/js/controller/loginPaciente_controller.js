@@ -3,8 +3,6 @@ const path = require("path");
 const Paciente = require('../models/paciente');
 const banco = require('../banco');
 const Redis = require('Redis');
-const client = Redis.createClient();
-client.on('error', err => console.log('Redis Client Error', err));
 
 
 
@@ -15,33 +13,33 @@ router.get('/loginPaciente', (req, res) => {
 });
 
 router.post('/logarPaciente', async (req, res) => {
-  const { email, senha } = req.body;
+  var campo_email = req.body.email;
+  var campo_senha = req.body.senha;
 
-  try {
-    const paciente = await Paciente.findOne({ where: { email, senha } });
+  const paciente = await Paciente.findOne({
+      attributes: ['idPaciente', 'nome', 'email', 'senha'],
+      where: {
+        email: campo_email
+      }
+  })
 
-    if (paciente) {
-      res.cookie('pacienteLogado', true, { maxAge: 900000, httpOnly: true });
-      await client.set('user', paciente.idPaciente);
+  if(paciente === null){
+      console.log("Usuário ou senha inválida");
+      res.sendFile(path.join(__dirname, '../../', 'login-paciente.html'));
+  }
 
-      return res.json({
-        erro: false,
-        mensagem: 'Paciente logado com sucesso!',
-        pacienteId: paciente.idPaciente,
-        pacienteInfo: paciente
-      });
-    } else {
-      return res.status(400).json({
-        erro: true,
-        mensagem: 'Credenciais inválidas. Falha ao logar paciente!',
-      });
-    }
-  } catch (error) {
-    console.error('Erro durante o login do paciente:', error);
-    return res.status(500).json({
-      erro: true,
-      mensagem: 'Ocorreu um erro ao processar o login do paciente.',
-    });
+  if(campo_email == paciente.email && campo_senha == paciente.senha){
+      req.session.paciente = {
+          idPaciente: paciente.idPaciente,
+          nome: paciente.nome,
+          email: paciente.email
+      }
+      
+      console.log("Logado com sucesso")
+      res.sendFile(path.join(__dirname, '../../', "index.html"));
+  }else{
+      console.log("Usuário ou senha inválida");
+      res.sendFile(path.join(__dirname, '../../', "index.html"));
   }
 });
 
