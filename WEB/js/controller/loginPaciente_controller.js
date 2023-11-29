@@ -9,7 +9,7 @@ const Redis = require('Redis');
 const router = express.Router();
 
 router.get('/loginPaciente', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../', 'login-paciente.html'));
+  res.render('login-paciente')
 });
 
 router.post('/logarPaciente', async (req, res) => {
@@ -25,7 +25,7 @@ router.post('/logarPaciente', async (req, res) => {
 
   if(paciente === null){
       console.log("Usuário ou senha inválida");
-      res.sendFile(path.join(__dirname, '../../', 'login-paciente.html'));
+      res.sendFile(path.join(__dirname, '../../', 'login-paciente'));
   }
 
   if(campo_email == paciente.email && campo_senha == paciente.senha){
@@ -36,10 +36,10 @@ router.post('/logarPaciente', async (req, res) => {
       }
       
       console.log("Logado com sucesso")
-      res.sendFile(path.join(__dirname, '../../', "index.html"));
+      res.render("index");
   }else{
       console.log("Usuário ou senha inválida");
-      res.sendFile(path.join(__dirname, '../../', "index.html"));
+      res.sendFile("index");
   }
 });
 

@@ -6,8 +6,8 @@ const banco = require("../banco")
 
 const router = express.Router();
 
-router.get("/cadastroAtestado", (req, res) =>{
-    res.sendFile(path.join(__dirname, "../../", "prontuario.html"));
+router.get("/atestado", (req, res) =>{
+    res.render('agendamento')
 })
 
 router.post("/cadastrarAtestadoAPI", async (req, res) => {

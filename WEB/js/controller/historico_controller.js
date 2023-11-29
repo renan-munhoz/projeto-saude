@@ -6,8 +6,8 @@ const banco = require("../banco")
 
 const router = express.Router();
 
-router.get("/cadastroHistorico", (req, res) =>{
-    res.sendFile(path.join(__dirname, "../../", "Historico.html"));
+router.get("/historico", (req, res) =>{
+    res.render('historico')
 })
 
 router.post("/cadastrarHistoricoAPI", async (req, res) => {

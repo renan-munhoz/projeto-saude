@@ -7,8 +7,8 @@ const spawnSync = require('child_process');
 
 const router = express.Router();
 
-router.get("/cadastroAgendamento", (req, res) =>{
-    res.sendFile(path.join(__dirname, "../../", "agendamento.html"));
+router.get("/agendamento", (req, res) =>{
+    res.render('agendamento')
 })
 
 router.post("/cadastrarAgendamentoAPI", async (req, res) => {
@@ -33,7 +33,7 @@ router.post("/cadastrarAgendamento", async (req, res) => {
         .then(() => {
             res.redirect('/');
         }).catch(() => {
-            res.sendFile(path.join(__dirname, "../../", "index.html"));
+            res.render("index");
         });
 });
 

@@ -6,23 +6,23 @@
 	<title>Projeto Saude</title>
 	<link rel="stylesheet" type="text/css" href="css/estilo.css">
 </head>
-<body #historico>
+<body #index>
 	<div id="cabecalho">
 		<div id="area-logo">
 			<h1 class="logo">
-				<a href="index.html">saúde</a>
+				<a href="start">saúde</a>
 			</h1>
 		</div>
 		<div id="area-menu">
 			<ul>
 				<li>
-					<a href="agendamento.html">Agendamento</a> |
+					<a href="agendamento">Agendamento</a> |
 				</li>
 				<li>
-					<a href="historico.html">Histórico</a> |
+					<a href="historico">Histórico</a> |
 				</li>
 				<li>
-					<a href="sobre-nos.html">Sobre Nós</a>
+					<a href="sobre-nos">Sobre Nós</a>
 				</li>
 			</ul>
 		</div>
@@ -30,11 +30,11 @@
 		<div id="area-login">
 			<ul>
 				<li>
-					<a href="login-funcionario.html">Login Funcionario</a>
+					<a href="loginFuncionario">Login Funcionario</a>
 				</li>
 				<div class="limpar"></div>
 				<li>
-					<a href="login-paciente.html">Login Paciente</a>
+					<a href="loginPaciente">Login Paciente</a>
 				</li>
 			</ul>
 		</div>
@@ -44,41 +44,41 @@
 
 	<div id="conteudo">
 		<div id="bloco">
-			<table method="post" action="/cadastrarHistorico">
+			<table method="post" action="/cadastrarHorario">
 				<tr>
-					<th>data</th>
-					<th>hora</th>
-					<th>medico</th>
-					<th>especialidade</th>
+					<th>Horario</th>
+					<th>Nome</th>
 				</tr>
 				<tr>
-					<td>20/10/23</td>
 					<td>10:00</td>
-					<td>Joeliton</td>
-					<td>otorrino</td>
+					<td>Carlos</td>
 				</tr>
 				<tr>
-					<td>10/10/23</td>
 					<td>11:00</td>
 					<td>Pedro</td>
-					<td>gastro</td>
 				</tr>
 				<tr>
-					<td>20/9/23</td>
-					<td>09:00</td>
+					<td>12:00</td>
 					<td>Arthur</td>
-					<td>neuro</td>
 				</tr>
 				<tr>
-					<td>25/5/23</td>
+					<td>14:00</td>
+					<td>Luis</td>
+				</tr>
+				<tr>
 					<td>15:00</td>
-					<td>Joeliton</td>
-					<td>otorrino</td>
+					<td>Nicolas</td>
+				</tr>
+				<tr>
+					<td>16:00</td>
+					<td>Renan</td>
+				</tr>
+				<tr>
+					<td>17:00</td>
+					<td>Epaminondas</td>
 				</tr>
 			</table>
 		</div>
-		
-		
 	</div>
 
 	<div id="rodape">
