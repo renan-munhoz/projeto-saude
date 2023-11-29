@@ -7,7 +7,7 @@ const banco = require("../banco")
 const router = express.Router();
 
 router.get("/cadastroPaciente", (req, res) =>{
-    res.sendFile(path.join(__dirname, "../../", "cadastro-paciente.html"));
+    res.render('cadastro-paciente')
 })
 
 router.post("/cadastrarPacienteAPI", async (req, res) => {

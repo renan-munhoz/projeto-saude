@@ -19,9 +19,7 @@ const AtestadoController = require('./controller/atestado_controller.js');
 const ReceitaController = require('./controller/receita_controller.js');
 const LoginPacienteController = require('./controller/loginPaciente_controller.js');
 const LoginFuncionarioController = require('./controller/loginFuncionario_controller.js');
-
-
-
+const IndexController = require('./controller/index_controller.js');
 
 app.set('views', path.join(__dirname,'../../','WEB'));
 app.set('view engine', 'ejs');
@@ -34,9 +32,10 @@ app.use(AtestadoController);
 app.use(ReceitaController);
 app.use(LoginPacienteController);
 app.use(LoginFuncionarioController);
+app.use(IndexController);
 
-const paginasPath = path.join(__dirname,'../', 'paginas');
-app.use('/paginas', express.static(paginasPath, { 
+const paginasPath = path.join(__dirname,'../../');
+app.use('/WEB', express.static(paginasPath, { 
     setHeaders: (res, path) => {
       if (path.endsWith('.css')) {
         res.setHeader('Content-Type', 'text/css');

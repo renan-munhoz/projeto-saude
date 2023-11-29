@@ -8,17 +8,8 @@ const Funcionario = require('../models/funcionario')
 
 const router = express.Router();
 
-router.get("/cadastroReceita/:idPaciente&:idFuncionario", async (req, res) =>{
-    const pacienteId = req.params.idPaciente
-    const paciente = await Paciente.findByPk(pacienteId);
-    console.log(paciente.nome)
-
-    const funcionarioId = req.params.idFuncionario
-    const funcionario = await Funcionario.findByPk(funcionarioId);
-    console.log(funcionario.nome)
-
-
-    res.render("prontuario", {paciente,funcionario});
+router.get("/receita", async (req, res) =>{
+    res.render("prontuario");
 })
 
 router.post("/cadastrarReceitaAPI", async (req, res) => {

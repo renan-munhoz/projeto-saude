@@ -2,19 +2,11 @@ const express = require("express");
 const path = require("path");
 const Funcionario = require('../models/funcionario');
 const banco = require('../banco');
-const Redis = require('Redis');
-//let client;
 
 const router = express.Router();
 
-/*(async()=>{
-	client = Redis.createClient();
-	client.on('error', err => console.log('Redis Client Error', err));
-	await client.connect();
-})();*/
-
 router.get('/loginFuncionario', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../', 'login-funcionario.html'));
+  res.render('loginFuncionario')
 });
 
 router.post('/logarFuncionario', async (req, res) => {
