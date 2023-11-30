@@ -29,11 +29,11 @@ router.post("/cadastrarPacienteAPI", async (req, res) => {
 router.post("/cadastrarPaciente", async (req, res) => {
     console.log(req.body);
     await Paciente.create(req.body)
-        .then(() => {
-            res.redirect('/');
-        }).catch(() => {
-            res.sendFile(path.join(__dirname, "../../", "index.html"));
-        });
+        .then(()=>{
+        res.render('cadastroPaciente')
+    }).catch(()=>{
+        res.render('index')
+    });
 });
 
 // PADRÃO SINGLETON

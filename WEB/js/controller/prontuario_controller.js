@@ -28,10 +28,12 @@ router.post("/cadastrarProntuarioAPI", async (req, res) => {
 });
 
 router.post("/cadastrarProntuario", async (req, res) => {
+    console.log(req.body);
+
     var campo_nome = req.body.Paciente;
 
     const paciente = await Paciente.findOne({
-        attributes: ['idPaciente', 'nome', 'email', 'endereco', 'telefone', 'senha'],
+        attributes: ['idPaciente', 'nome'],
         where: {
             nome: campo_nome
         }
@@ -39,35 +41,30 @@ router.post("/cadastrarProntuario", async (req, res) => {
 
     if(paciente === null){
         console.log("Paciente inválido");
-        res.sendFile(path.join(__dirname, "../../", "prontuario.html"));
+        res.render('menu-funcionario')
     }
 
     var pacienteId = paciente.idPaciente
-    console.log('idPaciente')
-    console.log(pacienteId)
 
-    const funcionario = req.session.funcionarios
+    var funcionarioId = req.session.funcionarios.idFuncionario;
 
-    var funcionarioId = funcionario.idFuncionario
+    console.log('idFuncionario:', funcionarioId);
+    console.log('idPaciente:', pacienteId);
 
-    await Prontuario.create({
+
+    try {
+        await Prontuario.create({
             texto: req.body.texto,
-            idPaciente: pacienteId,
-            idFuncionario: funcionarioId
-        }  
-        )
-        .then(() => {
-            return res.json({
-                erro: false,
-                mensagem: "Prontuario cadastrado com sucesso!"
-            });
-        }
-        ).catch(() => {
-            return res.status(400).json({
-                erro: true,
-                mensagem: "Falha ao cadastrar prontuario!"
-            });
+            funcionarioIdFuncionario: funcionarioId,
+            pacienteIdPaciente: pacienteId
         });
+
+        console.log("Prontuário cadastrado com sucesso!");
+        res.render('prontuario')
+    } catch (error) {
+        console.error("Erro ao cadastrar prontuário:", error);
+        res.render('prontuario')
+    }
 });
 
 // PADRÃO SINGLETON

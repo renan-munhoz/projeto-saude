@@ -29,9 +29,9 @@ router.post("/cadastrarFuncionario", async (req, res)=>{
     console.log(req.body);
     await Funcionario.create(req.body)
     .then(()=>{
-        res.redirect('/');
+        res.render('cadastroFuncionario')
     }).catch(()=>{
-        res.sendFile(path.join(__dirname, "../../", "index.html"));
+        res.render('index')
     });
 });
 

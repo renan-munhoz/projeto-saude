@@ -4,8 +4,6 @@ const Paciente = require('../models/paciente');
 const banco = require('../banco');
 const Redis = require('Redis');
 
-
-
 const router = express.Router();
 
 router.get('/loginPaciente', (req, res) => {
@@ -36,7 +34,7 @@ router.post('/logarPaciente', async (req, res) => {
       }
       
       console.log("Logado com sucesso")
-      res.render("index");
+      res.render("index-logado");
   }else{
       console.log("Usuário ou senha inválida");
       res.sendFile("index");

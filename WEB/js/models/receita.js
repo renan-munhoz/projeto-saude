@@ -12,7 +12,7 @@ const Receita = banco.define(
       primaryKey: true
     },
     receita: {
-      type: Sequelize.STRING,
+      type: Sequelize.BLOB,
       allowNull: false
     }
   }

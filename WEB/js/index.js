@@ -7,6 +7,7 @@ const secao = require("./secao");
 
 
 const app = express();
+app.use(express.static(path.join(__dirname, '../../', 'WEB')));
 app.use(express.json());
 app.use(secao);
 app.use(bodyParser.urlencoded({extended:true}));
@@ -20,6 +21,11 @@ const ReceitaController = require('./controller/receita_controller.js');
 const LoginPacienteController = require('./controller/loginPaciente_controller.js');
 const LoginFuncionarioController = require('./controller/loginFuncionario_controller.js');
 const IndexController = require('./controller/index_controller.js');
+const HistoricoController = require('./controller/historico_controller.js');
+const HorarioController = require('./controller/horario_controller.js');
+const MenuFuncionarioController = require('./controller/menuFuncionario_controller.js');
+const SobreNosController = require('./controller/sobre-nos_controller.js');
+const IndexLogadoController = require('./controller/index-logado_controller.js');
 
 app.set('views', path.join(__dirname,'../../','WEB'));
 app.set('view engine', 'ejs');
@@ -33,15 +39,11 @@ app.use(ReceitaController);
 app.use(LoginPacienteController);
 app.use(LoginFuncionarioController);
 app.use(IndexController);
-
-const paginasPath = path.join(__dirname,'../../');
-app.use('/WEB', express.static(paginasPath, { 
-    setHeaders: (res, path) => {
-      if (path.endsWith('.css')) {
-        res.setHeader('Content-Type', 'text/css');
-      }
-    },
-  }));
+app.use(HistoricoController);
+app.use(HorarioController);
+app.use(MenuFuncionarioController);
+app.use(SobreNosController);
+app.use(IndexLogadoController);
 
 //app.use(router);
 
