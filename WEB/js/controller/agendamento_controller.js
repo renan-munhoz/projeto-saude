@@ -2,6 +2,8 @@ const express = require("express");
 const path = require("path");
 const Agendamento = require('../models/agendamento')
 const banco = require("../banco")
+const Paciente = require('../models/paciente')
+const Funcionario = require('../models/funcionario')
 
 const spawnSync = require('child_process');
 
@@ -29,11 +31,35 @@ router.post("/cadastrarAgendamentoAPI", async (req, res) => {
 
 router.post("/cadastrarAgendamento", async (req, res) => {
     console.log(req.body);
-    await Agendamento.create(req.body)
+
+    var campo_nome = req.body.medico;
+
+    const funcionario = await Funcionario.findOne({
+        attributes: ['idFuncionario', 'nome'],
+        where: {
+            nome: campo_nome
+        }
+    })
+    console.log(funcionario.nome)
+    if(funcionario === null){
+        console.log("Medico inválido");
+    }
+
+    var pacienteId = req.session.paciente.idPaciente
+
+    var funcionarioId = funcionario.idFuncionario
+
+
+    await Agendamento.create({
+        data: req.body.data,
+        hora: req.body.hora,
+        funcionarioIdFuncionario: funcionarioId,
+        pacienteIdPaciente: pacienteId
+    })
         .then(() => {
-            res.redirect('/');
+            res.redirect('index-logado');
         }).catch(() => {
-            res.render("index");
+            res.render("agendamento");
         });
 });
 

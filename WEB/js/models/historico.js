@@ -23,4 +23,4 @@ Historico.belongsTo(Historico)
 // Sincroniza o modelo com o banco de dados
 Historico.sync({alter: true});
 
-module.exports = Receita;
+module.exports = Historico;

@@ -2,11 +2,12 @@ const express = require("express");
 const path = require("path");
 const Funcionario = require('../models/funcionario');
 const banco = require('../banco');
+const Redis = require('Redis');
 
 const router = express.Router();
 
 router.get('/loginFuncionario', (req, res) => {
-  res.render('loginFuncionario')
+  res.render('login-funcionario')
 });
 
 router.post('/logarFuncionario', async (req, res) => {
@@ -22,7 +23,7 @@ router.post('/logarFuncionario', async (req, res) => {
 
   if(funcionarios === null){
       console.log("Usuário ou senha inválida");
-      res.sendFile(path.join(__dirname, '../../', 'login-funcionario.html'));
+      res.render('start')
   }
 
   if(campo_email == funcionarios.email && campo_senha == funcionarios.senha){
@@ -33,10 +34,10 @@ router.post('/logarFuncionario', async (req, res) => {
       }
       
       console.log("Logado com sucesso")
-      res.sendFile(path.join(__dirname, '../../', "menu-funcionario.html"));
+      res.render('menu-funcionario')
   }else{
       console.log("Usuário ou senha inválida");
-      res.sendFile(path.join(__dirname, '../../', "index.html"));
+      res.render('index')
   }
 });
 
