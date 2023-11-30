@@ -1,23 +1,22 @@
-import 'package:appclinica/paginas/main.dart';
+
 import 'package:flutter/material.dart';
 
 
-
-class Tabela extends StatefulWidget{
+class Tabelahistorico extends StatefulWidget{
 
 @override
   TabelaState createState() => TabelaState();
 
 }
 
-class TabelaState extends State<Tabela>{
+class TabelaState extends State<Tabelahistorico>{
 
 @override
 
  Widget build (BuildContext context) => Scaffold(
 
    appBar: AppBar(
-    title: Text(MyApp.title),
+    title: Text("Tabela do Histórico"),
    ),
     body:Center(
      child:Table(
