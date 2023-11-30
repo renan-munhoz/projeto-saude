@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class loginpaciente extends StatelessWidget {
-  const loginpaciente({super.key});
+class cadastrofuncionario extends StatelessWidget {
+  const cadastrofuncionario({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -226,10 +226,11 @@ class loginpaciente extends StatelessWidget {
                           ),
                           textAlign: TextAlign.center,
                         ),
+                       
                         ]
-                         )
-                        onPressed:()=>{},
-                        ),
+                         ) ,
+                         onPressed:()=>{},
+                        ),     
                       )
                     ),
                    ]
