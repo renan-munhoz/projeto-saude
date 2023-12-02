@@ -6,10 +6,10 @@ import 'package:appclinica/paginas/loginpaciente.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(Menu());
 }
 
-class MyApp extends StatelessWidget {
+class Menu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
